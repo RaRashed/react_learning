@@ -1,15 +1,9 @@
-import ContactForm from './component/ContactForm';
-import Footer from './component/Footer';
-import Header from './component/Header';
-import Hero from './component/Hero';
+import Switch from "./component/Switch";
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <Hero />
-      <ContactForm />
-      <Footer/>
+ <Switch/>
     </div>
   );
 };
