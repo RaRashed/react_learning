@@ -34,6 +34,16 @@ const App = () => {
     myCss.current.classList.add('text-danger');
 
   }
+
+  let APIData = useRef(null);
+  let myTag = useRef();
+  const fetchData = async () => {
+    const response = await fetch('https://dummyjson.com/products/1');
+    APIData.current = await response.json();
+  }
+  const showData = () => {
+    myTag.current.innerText = JSON.stringify(APIData.current);
+  }
   return (
     <div>
       <Hero item={ItemObj} btn={BtnClick} />
@@ -52,6 +62,11 @@ const App = () => {
       <h1 ref={myCss} className='text-success'>My name is Rashed
       </h1>
       <button onClick={cssChange}>change css</button>
+      <div>
+        <p ref={myTag}></p>
+        <button onClick={fetchData}>call api</button>
+        <button onClick={showData}>Show data</button>
+      </div>
     </div>
   );
 };
